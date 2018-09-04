@@ -12,11 +12,11 @@ gem 'puma', '~> 3.7'
 
 
 group :development, :test do
-  gem 'pry-rails'
-  gem 'rspec-rails'
-  gem 'rubocop'
-  gem 'faker'
-  gem 'factory_bot_rails'
+  gem 'pry-rails', '~> 0.3.6'
+  gem 'rspec-rails', '~> 3.8.0'
+  gem 'rubocop', '~> 0.58.2'
+  gem 'faker', '~> 1.9.1'
+  gem 'factory_bot_rails', '~> 4.11.0'
 end
 
 group :development do
