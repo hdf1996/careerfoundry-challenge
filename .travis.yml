@@ -9,13 +9,12 @@ services:
 before_install:
   - "echo '--colour' > ~/.rspec"
   - "echo 'gem: --no-document' > ~/.gemrc"
-  # Solves rainbow issue: https://github.com/sickill/rainbow/issues/48
   - gem update --system
 
 before_script:
-  - psql -c "CREATE USER \"rails-bootstrap\" WITH PASSWORD 'rails-bootstrap';" -U postgres
-  - psql -c "DROP DATABASE IF EXISTS \"rails-bootstrap_test\";" -U postgres
-  - psql -c "CREATE DATABASE \"rails-bootstrap_test\" ENCODING 'utf8';" -U postgres
+  - psql -c "CREATE USER \"careerfoundry-challenge\" WITH PASSWORD 'careerfoundry-challenge';" -U postgres
+  - psql -c "DROP DATABASE IF EXISTS \"careerfoundry-challenge_test\";" -U postgres
+  - psql -c "CREATE DATABASE \"careerfoundry-challenge_test\" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
 
 script:
