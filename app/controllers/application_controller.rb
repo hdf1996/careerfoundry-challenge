@@ -1,7 +1,8 @@
-class ApplicationController < ActionController::API
-  rescue_from ActionController::ParameterMissing, with: :parameter_missing
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :null_session
 
-  def parameter_missing(e)
-    render json: { error: e.message }, status: :bad_request
+  rescue_from ActionController::ParameterMissing, with: :parameter_missing
+  def parameter_missing(error)
+    render json: { error: error.message }, status: :bad_request
   end
 end
