@@ -1,7 +1,8 @@
 require 'rails_helper'
-include WeatherMock
 
 describe Api::V1::WeatherController, type: :controller do
+  include WeatherMock
+
   describe '#index' do
     before do
       weather_mock(q, desired_weather_status_code)
