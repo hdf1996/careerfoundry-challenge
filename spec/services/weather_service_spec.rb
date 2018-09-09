@@ -12,7 +12,7 @@ describe WeatherService do
       let(:desired_code) { 200 }
 
       it 'responds with 200' do
-        expect(service.weather(city).code).to be(200)
+        expect(service.weather(city)[:status]).to be(200)
       end
     end
 
@@ -21,7 +21,7 @@ describe WeatherService do
       let(:desired_code) { 404 }
 
       it 'responds with 404' do
-        expect(service.weather(city).code).to be(404)
+        expect(service.weather(city)[:status]).to be(404)
       end
     end
   end

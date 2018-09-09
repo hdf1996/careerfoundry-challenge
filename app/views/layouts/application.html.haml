@@ -1,0 +1,9 @@
+!!! 5
+%html
+  %head
+    %title Weather App
+    = stylesheet_link_tag    "application", media: "all"
+    = csrf_meta_tags
+  %body
+    = yield
+    = javascript_include_tag "application"

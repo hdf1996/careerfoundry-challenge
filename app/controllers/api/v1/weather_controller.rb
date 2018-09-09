@@ -2,11 +2,14 @@ module Api
   module V1
     class WeatherController < ApplicationController
       def index
-        weather = weather_service.weather(params.require(:q))
-        if weather.code == 404
+        weather = weather_service.weather(
+          params.require(:q),
+          params.fetch(:units, 'imperial')
+        )
+        if weather[:status] == 404
           render json: { error: :not_found }, status: :not_found
         else
-          render json: weather.parsed_response
+          render json: weather[:body]
         end
       end
 

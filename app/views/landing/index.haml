@@ -1,0 +1,13 @@
+.container.clouds
+  .mid-screen-x.full-screen-y.flex-center-both.flex-direction-column.weather-container
+    .icon
+    %h1.location 
+    %h2.description 
+    %h3.temperature
+    .temp-selector
+      .imperial F
+      .metric.enabled °C
+  .mid-screen-x.full-screen-y.flex-center-both.flex-start-justify
+    %form
+      %input.input{ type: :text, value: 'London' }
+      .feedback The location is invalid or does not exist

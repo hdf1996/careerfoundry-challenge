@@ -1,0 +1,165 @@
+/*
+  TODO: Different styles for enabled units
+*/
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css');
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive;
+  text-transform: uppercase;
+}
+
+.mid-screen-x {
+  width: 50%;
+}
+
+.full-screen-y {
+  height: 100vh;
+}
+
+.flex-center-both {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-start-justify {
+  justify-content: flex-start;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.input {
+  padding: 15px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 3px solid white;
+  font-size: 23px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 0;
+  color: white;
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.temp-selector {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+
+  * {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .enabled {
+    border-bottom: 1px solid white;
+    font-weight: bold;
+  }
+}
+
+.weather-container {
+  opacity: 1;
+  transition: 0.3s ease-in;
+
+  &.loading {
+    opacity: 0;
+  }
+}
+
+.feedback {
+  height: 0px;
+  transition: 0.3s ease-in;
+  overflow: hidden;
+
+  &.enabled {
+    height: 30px;
+  }
+}
+
+.container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon::before {
+    font-family: 'weathericons';
+    font-size: 140px;
+  }
+
+  &.thunderstorm {
+    background-image: linear-gradient( 135deg, #3B2667 10%, #BC78EC 100%);
+
+    .icon::before {
+      content: "\f01d";
+    }
+  }
+
+  &.drizzle {
+    background-image: linear-gradient( 135deg, #52E5E7 10%, #130CB7 100%);
+
+    .icon::before {
+      content: "\f01a";
+    }
+  }
+
+  &.rain {
+    background: linear-gradient( 135deg, #525252, #3d72b4);
+
+    .icon::before {
+      content: "\f019";
+    }
+  }
+
+  &.snow {
+    background: linear-gradient( 135deg, #e6dada, #274046);
+
+    .icon::before {
+      content: "\f01b";
+    }
+  }
+
+  &.atmosphere {
+    background: linear-gradient( 135deg, #bbd2c5, #536976, #292e49);
+
+    .icon::before {
+      content: "\f021";
+    }
+  }
+
+  &.clear {
+    background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+
+    .icon::before {
+      content: "\f00d";
+    }
+  }
+
+  &.clouds {
+    background-image: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+
+    .icon::before {
+      content: "\f041";
+    }
+  }
+}
