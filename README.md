@@ -1,24 +1,23 @@
-# README
+# WeatherApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app uses OpenWeatherMap to show a nice & detailed view of your local weather!
 
-Things you may want to cover:
+- Ruby version: 2.5.1
 
-* Ruby version
+- Configuration
+  - Set OPEN_WEATHER_APP_ID to a valid api token (create yours at https://openweathermap.org/)
+  - Set up redis with the default settings
+  - Set up postgresql (you can find the credentials at config/database.yml)
 
-* System dependencies
+- Database creation
+  - rails db:create
 
-* Configuration
+- Database initialization
+  - rails db:migrate
 
-* Database creation
+- How to run the test suite
+  - bundle exec rspec
+  - bundle exec rubocop app spec -Ra
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Deployment instructions
+  - just push to hdf1986/careerfoundry-challenge master branch and you are done!
