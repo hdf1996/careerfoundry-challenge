@@ -81,7 +81,7 @@
     updateWeatherByName(inputElement.value)
   })
 
-  updateWeather(location)
+  updateWeatherByName(location)
 
   try {
     if ("geolocation" in navigator) {
