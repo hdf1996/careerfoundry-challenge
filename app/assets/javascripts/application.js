@@ -51,13 +51,14 @@
     containerElement.className = `container ${weatherNameByCode(parseInt(weather.weather[0].id))}`
   }
 
-  const updateWeather = (res) => {
+  const updateWeather = (res, refreshName) => {
     weatherElement.classList.add('loading')
     document.querySelector('.temp-selector > .enabled').classList.remove('enabled');
     document.querySelector(`.${currentTempType}`).classList.add('enabled')
 
     if(res.status !== 200) return feedbackElement.classList.add('enabled');
     return res.json().then(weather => {
+      if(refreshName) inputElement.value = weather.name;
       setUI(weather)
       location = weather.name
       weatherElement.classList.remove('loading')
@@ -65,7 +66,7 @@
   }
 
   const updateWeatherByName = (location) => fetchWeatherByName(location).then(res => updateWeather(res));
-  const updateWeatherByPos = (lat, lon) => fetchWeatherByPos(lat, lon).then(res => updateWeather(res));
+  const updateWeatherByPos = (lat, lon) => fetchWeatherByPos(lat, lon).then(res => updateWeather(res, true));
 
   const changeUnits = (unitType) => {
     currentTempType = unitType;
