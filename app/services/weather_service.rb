@@ -21,8 +21,8 @@ class WeatherService
   private
 
   def cache_key(params)
-    return "weather/#{params.fetch(:q)}_#{@units}" if params.fetch(:q, '').present?
-    "weather/#{params.fetch(:lat)}_#{params.fetch(:lon)}_#{@units}"
+    return "weather/#{params.fetch(:q)}_#{@options[:units]}" if params.fetch(:q, '').present?
+    "weather/#{params.fetch(:lat)}_#{params.fetch(:lon)}_#{@options[:units]}"
   end
 
   def map_response(response)
