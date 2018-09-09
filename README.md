@@ -28,4 +28,5 @@ This app uses OpenWeatherMap to show a nice & detailed view of your local weathe
 - Separate the API from the frontend into two apps
 - Create integration tests for the frontend
 - Build a smooth transition for the background
+- Improve the responsive version to include the searchbar and not only the user location
 - Integrate with Google maps API to build an input with suggestions about the locations while the user is tiping
