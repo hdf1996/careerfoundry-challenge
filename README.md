@@ -21,7 +21,7 @@ This app uses OpenWeatherMap to show a nice & detailed view of your local weathe
   - bundle exec rubocop app spec -Ra
 
 - Deployment instructions
-  - just push to hdf1986/careerfoundry-challenge master branch and you are done!
+  - Just push to hdf1986/careerfoundry-challenge master branch and you are done!
 
 ## Things to improve
 - Use scss & javascript linting
