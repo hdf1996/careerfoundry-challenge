@@ -40,7 +40,8 @@
     '.feedback'
   ].map(query => document.querySelector(query))
 
-  const fetchWeather = (location) => fetch(`${API_URL}/api/v1/weather?q=${location}&units=${currentTempType}`)
+  const fetchWeatherByName = (location) => fetch(`${API_URL}/api/v1/weather?q=${location}&units=${currentTempType}`)
+  const fetchWeatherByPos = (lat, lon) => fetch(`${API_URL}/api/v1/weather?lat=${lat}&lon=${lon}&units=${currentTempType}`)
 
   const setUI = weather => {
     feedbackElement.classList.remove('enabled')
@@ -52,20 +53,21 @@
     containerElement.className = `container ${weatherNameByCode(parseInt(weather.weather[0].id))}`
   }
 
-  const updateWeather = (loc) => {
-    location = loc;
+  const updateWeather = (res) => {
     weatherElement.classList.add('loading')
     document.querySelector('.temp-selector > .enabled').classList.remove('enabled');
     document.querySelector(`.${currentTempType}`).classList.add('enabled')
-    fetchWeather(loc)
-      .then((res) => {
-        if(res.status !== 200) return feedbackElement.classList.add('enabled');
-        return res.json().then(weather => {
-          setUI(weather)
-          weatherElement.classList.remove('loading')
-        });
-      }).catch(() => weatherElement.classList.remove('loading'))
+
+    if(res.status !== 200) return feedbackElement.classList.add('enabled');
+    return res.json().then(weather => {
+      setUI(weather)
+      location = weather.name
+      weatherElement.classList.remove('loading')
+    });
   }
+
+  const updateWeatherByName = (location) => fetchWeatherByName(location).then(res => updateWeather(res));
+  const updateWeatherByPos = (lat, lon) => fetchWeatherByPos(lat, lon).then(res => updateWeather(res));
 
   const changeUnits = (unitType) => {
     currentTempType = unitType;
@@ -76,8 +78,21 @@
   metricElement.addEventListener('click', () => changeUnits('metric'))
   inputElement.parentNode.addEventListener('submit', (e) => {
     e.preventDefault();
-    updateWeather(inputElement.value)
+    updateWeatherByName(inputElement.value)
   })
 
   updateWeather(location)
+
+  try {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        updateWeatherByPos(
+          position.coords.latitude, 
+          position.coords.longitude,
+        );
+      });
+    }
+  } catch (error) {
+    console.log('s');
+  }
 })()

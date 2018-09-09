@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'httparty'
 gem 'haml-rails'
+gem 'redis-rails'
 
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
