@@ -11,7 +11,6 @@ module Api
           render json: weather[:body]
         end
       end
-      
 
       private
 
