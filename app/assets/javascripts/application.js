@@ -2,10 +2,8 @@
   let currentTempType = 'metric';
   let location = 'London';
   const API_URL = '';
-  // TODO: Get user location
 
   const weatherNameByCode = code => {
-    console.log(code);
     if(200 <= code && code <= 299) return 'thunderstorm';
     if(300 <= code && code <= 399) return 'drizzle';
     // According to https://openweathermap.org/weather-conditions 4xx doesn't exist 
@@ -71,7 +69,7 @@
 
   const changeUnits = (unitType) => {
     currentTempType = unitType;
-    updateWeather(location)
+    updateWeatherByName(location)
   }
 
   imperialElement.addEventListener('click', () => changeUnits('imperial'))
@@ -93,6 +91,6 @@
       });
     }
   } catch (error) {
-    console.log('s');
+    console.log('An error ocurred when asking for location');
   }
 })()
