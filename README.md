@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/hdf1986/careerfoundry-challenge.svg?branch=master)](https://travis-ci.org/hdf1986/careerfoundry-challenge)
 # WeatherApp
 
 This app uses OpenWeatherMap to show a nice & detailed view of your local weather!
