@@ -166,9 +166,7 @@ h3 {
   }
 }
 
-@media screen 
-  and (device-width: 360px) 
-  and (device-height: 640px) {
+@media only screen and (max-width: 600px) {
   .container {
     overflow: hidden;
     flex-direction: column;
