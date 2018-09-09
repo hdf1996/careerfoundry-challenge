@@ -21,3 +21,10 @@ This app uses OpenWeatherMap to show a nice & detailed view of your local weathe
 
 - Deployment instructions
   - just push to hdf1986/careerfoundry-challenge master branch and you are done!
+
+## Things to improve
+- Use scss & javascript linting
+- Separate the API from the frontend into two apps
+- Create integration tests for the frontend
+- Build a smooth transition for the background
+- Integrate with Google maps API to build an input with suggestions about the locations while the user is tiping
